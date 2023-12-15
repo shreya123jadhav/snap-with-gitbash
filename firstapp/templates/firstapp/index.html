@@ -1,0 +1,223 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+
+    <div
+      id="hero-carousel"
+      class="carousel slide"
+      data-bs-ride="carousel"
+      style="padding: 5px; background-color: black"
+    >
+      <div class="carousel-indicators">
+        <button
+          type="button"
+          data-bs-target="#hero-carousel"
+          data-bs-slide-to="0"
+          class="active"
+          aria-current="true"
+          aria-label="Slide 1"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#hero-carousel"
+          data-bs-slide-to="1"
+          aria-label="Slide 2"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#hero-carousel"
+          data-bs-slide-to="2"
+          aria-label="Slide 3"
+        ></button>
+      </div>
+
+      <div class="carousel-inner">
+        <div class="carousel-item active c-item">
+          <img
+            src="https://images.unsplash.com/photo-1603190287605-e6ade32fa852?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8ZW50ZXJ0YWlubWVudHxlbnwwfHwwfHw%3D&w=1000&q=80"
+            class="d-block w-100 c-img"
+            alt="Slide 1"
+          />
+          <div class="carousel-caption top-0 mt-4">
+            <p class="mt-5 fs-3 text-uppercase">Discover the hidden world</p>
+            <h1 class="display-1 fw-bolder text-capitalize">
+              The Aurora Tours
+            </h1>
+            <button class="btn btn-primary px-4 py-2 fs-5 mt-5">
+              Book a tour
+            </button>
+          </div>
+        </div>
+        <div class="carousel-item c-item">
+          <img
+            src="https://images.pexels.com/photos/1763075/pexels-photo-1763075.jpeg?cs=srgb&dl=pexels-sebastian-ervi-1763075.jpg&fm=jpg"
+            class="d-block w-100 c-img"
+            alt="Slide 2"
+          />
+          <div class="carousel-caption top-0 mt-4">
+            <p class="text-uppercase fs-3 mt-5">The season has arrived</p>
+            <p class="display-1 fw-bolder text-capitalize">3 available tours</p>
+            <button
+              class="btn btn-primary px-4 py-2 fs-5 mt-5"
+              data-bs-toggle="modal"
+              data-bs-target="#booking-modal"
+            >
+              Book a tour
+            </button>
+          </div>
+        </div>
+        <div class="carousel-item c-item">
+          <img
+            src="https://burst.shopifycdn.com/photos/dj-crowd.jpg?width=1200&format=pjpg&exif=1&iptc=1"
+            class="d-block w-100 c-img"
+            alt="Slide 3"
+          />
+          <div class="carousel-caption top-0 mt-4">
+            <p class="text-uppercase fs-3 mt-5">Destination activities</p>
+            <p class="display-1 fw-bolder text-capitalize">Go glacier hiking</p>
+            <button
+              class="btn btn-primary px-4 py-2 fs-5 mt-5"
+              data-bs-toggle="modal"
+              data-bs-target="#booking-modal"
+            >
+              Book a tour
+            </button>
+          </div>
+        </div>
+      </div>
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#hero-carousel"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#hero-carousel"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+    <br />
+    <div class="container">
+      <div
+        style="
+          display: flex;
+          justify-content: space-between;
+          width: 100%;
+          align-items: center;
+        "
+      >
+        <div style="font-size: xx-large; padding: 10px">Featured Events</div>
+      </div>
+      <div
+        style="display: flex; flex-wrap: wrap; justify-content: space-between"
+      >
+        {% for events in events %}
+         <div style="padding: 25px">
+          <div class="card" style="width: 18rem">
+
+            <img
+              class="card-img-top height"
+              src="{{events.photo.url}}"
+              alt="Card image cap"
+              style="height:190px"
+            />
+            <div class="card-body">
+              <h5 class="card-title">{{events.eventname}}</h5>
+              <p class="card-text">
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+              </p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+
+        </div> 
+          {% endfor %}
+
+      </div>
+      <br />
+     
+      <br>
+      <div style="display: flex; align-items: last baseline;text-align: center;">
+        <span class="material-symbols-outlined">
+          widgets
+          </span>
+         <h3 style="margin-left: 5px">Genre</h3>
+      </div>
+      <div
+      style="display: flex; flex-wrap: wrap; justify-content: space-between; border-radius: 10px;" 
+    >
+      <div style="padding: 25px">
+        <div class="card" style="width: 18rem">
+        
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <h2>Comedy</h2>
+            <a href="http://127.0.0.1:8000/firstapp/comedy/" class="btn btn-primary">View More</a>
+          </div>
+        </div>
+      </div>
+      <div style="padding: 25px">
+        <div class="card" style="width: 18rem">
+
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <h2>Entertainment</h2>
+            <a href="http://127.0.0.1:8000/firstapp/entertainment/" class="btn btn-primary">View More</a>
+          </div>
+        </div>
+      </div>
+      <div style="padding: 25px">
+        <div class="card" style="width: 18rem">
+
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+          <h2> Art</h2>
+            <a href="http://127.0.0.1:8000/firstapp/art/" class="btn btn-primary">View More</a>
+          </div>
+        </div>
+      </div>
+      <div style="padding: 25px">
+        <div class="card" style="width: 18rem">
+
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+          <h2> Workshop</h2>
+            <a href="workshop.html" class="btn btn-primary">View More</a>
+          </div>
+        </div>
+      </div>
+      <div style="padding: 25px">
+        <div class="card" style="width: 18rem">
+
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+          <h2> Conference</h2>
+            <a href="http://127.0.0.1:8000/firstapp/conference/" class="btn btn-primary">View More</a>
+          </div>
+        </div>
+      </div>
+      <div style="padding: 25px">
+        <div class="card" style="width: 18rem">
+
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+          <h2> Sports</h2>
+            <a href="sport.html" class="btn btn-primary">View More</a>
+          </div>
+        </div>
+      </div>
+      </div>
+      </div>
+      <br>
+{% endblock %}
